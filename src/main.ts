@@ -1,4 +1,5 @@
 import { ErrorMapper } from "utils/ErrorMapper";
+import { isMyRoom } from "@open-screeps/is-my-room";
 
 declare global {
   /*
@@ -40,4 +41,10 @@ export const loop = ErrorMapper.wrapLoop(() => {
       delete Memory.creeps[name];
     }
   }
+  _.forEach(Game.rooms, function(room) {
+    if(isMyRoom(room)) {
+      let roomManager = new RoomManager(room);
+
+    }
+  });
 });
